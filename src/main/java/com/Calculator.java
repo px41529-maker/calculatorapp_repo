@@ -1,79 +1,106 @@
 import java.util.Scanner;
 
-public class Calculator {
-
-    private static final int MAX_VALUE = 100;
+public class Test {
 
     public static void main(String[] args) {
 
-        try (Scanner sc = new Scanner(System.in)) {
+        Scanner sc = new Scanner(System.in);
 
-            while (true) {
+        int a = 0;
+        int b = 0;
+        int c = 0;      // Unused variable
+        int d = 10;     // Unused variable
+        String temp = ""; // Unused variable
 
-                System.out.print("Enter first number: ");
-                int a = sc.nextInt();
+        while (true) {
 
-                System.out.print("Enter second number: ");
-                int b = sc.nextInt();
+            System.out.println("Enter first number:");
+            a = sc.nextInt();
 
-                System.out.println("\n1. Add");
-                System.out.println("2. Subtract");
-                System.out.println("3. Multiply");
-                System.out.println("4. Divide");
-                System.out.println("5. Exit");
-                System.out.print("Enter choice: ");
+            System.out.println("Enter second number:");
+            b = sc.nextInt();
 
-                int choice = sc.nextInt();
+            System.out.println("1. Add");
+            System.out.println("2. Subtract");
+            System.out.println("3. Multiply");
+            System.out.println("4. Divide");
+            System.out.println("5. Exit");
 
-                switch (choice) {
-                    case 1:
-                        System.out.println("Result = " + (a + b));
-                        break;
+            int choice = sc.nextInt();
 
-                    case 2:
-                        System.out.println("Result = " + (a - b));
-                        break;
+            if (choice == 1) {
+                System.out.println("Result = " + (a + b));
+            } else if (choice == 2) {
+                System.out.println("Result = " + (a - b));
+            } else if (choice == 3) {
+                System.out.println("Result = " + (a * b));
+            } else if (choice == 4) {
+                System.out.println("Result = " + (a / b)); // Division by zero risk
+            } else if (choice == 5) {
+                break;
+            } else {
+                System.out.println("Wrong Choice");
+            }
 
-                    case 3:
-                        System.out.println("Result = " + (a * b));
-                        break;
+            // Duplicate code
+            System.out.println("Done");
+            System.out.println("Done");
+            System.out.println("Done");
 
-                    case 4:
-                        if (b == 0) {
-                            System.out.println("Error: Division by zero is not allowed.");
-                        } else {
-                            System.out.println("Result = " + (a / b));
+            // Complex condition
+            if (a > 0 && b > 0 && a < 100 && b < 100 && choice > 0 && choice < 6 && a != b && a % 2 == 0 && b % 2 == 0) {
+                System.out.println("Valid Input");
+            }
+
+            // Magic numbers
+            if (a > 999) {
+                System.out.println("Large Number");
+            }
+
+            int x = 100;
+            if (x == 100) {
+                System.out.println("Magic Number");
+            }
+
+            // Empty catch block
+            try {
+                int y = 10 / 0;
+            } catch (Exception e) {
+            }
+
+            // Nested if statements
+            if (a > 0) {
+                if (b > 0) {
+                    if (choice > 0) {
+                        if (choice < 6) {
+                            System.out.println("Nested If");
                         }
-                        break;
-
-                    case 5:
-                        System.out.println("Bye!");
-                        return;
-
-                    default:
-                        System.out.println("Invalid Choice.");
-                        continue;
-                }
-
-                System.out.println("Calculation completed.");
-
-                if (isValidInput(a, b, choice)) {
-                    System.out.println("Valid Input");
-                }
-
-                if (MAX_VALUE == 100) {
-                    System.out.println("Maximum value is " + MAX_VALUE);
+                    }
                 }
             }
-        }
-    }
 
-    private static boolean isValidInput(int a, int b, int choice) {
-        return a > 0
-                && b > 0
-                && a < MAX_VALUE
-                && b < MAX_VALUE
-                && choice >= 1
-                && choice <= 5;
+            // Dead code
+            if (false) {
+                System.out.println("Never executes");
+            }
+
+            // Boolean comparison
+            boolean flag = true;
+            if (flag == true) {
+                System.out.println("Flag is true");
+            }
+
+            // String concatenation in loop
+            String s = "";
+            for (int i = 0; i < 10; i++) {
+                s = s + i;
+            }
+
+            // Empty if block
+            if (a == b) {
+            }
+        }
+
+        // Scanner intentionally not closed
     }
 }
