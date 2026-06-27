@@ -13,7 +13,7 @@ pipeline {
 
         stage('Checkout Code') {
             steps {
-                git branch: 'main', url: 'https://github.com/birarivb/calApp.git'
+                git branch: 'main', url: 'https://github.com/px41529-maker/calculatorapp_repo.git'
             }
         }
 
@@ -29,7 +29,7 @@ pipeline {
                     sh """
                     mvn sonar:sonar \
                     -Dsonar.projectKey=java-app \
-                    -Dsonar.host.url=http://65.1.248.90:9000/ \
+                    -Dsonar.host.url=http://65.0.3.222:9000/ \
                     -Dsonar.login=$SONAR_TOKEN
                     """
                 }
